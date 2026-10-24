@@ -30,11 +30,20 @@ typedef struct
 
 extern KernelTask_t kernel_tasks[KERNEL_MAX_TASKS];
 
+/* The running task remains READY while it is eligible to execute. */
+extern KernelTask_t * volatile kernel_current_task;
+
+/* Internal scheduler helper; not an application API. */
+KernelTask_t *Kernel_SelectNextTask(void);
+
 void Kernel_Tick(void);
 uint32_t Kernel_GetTick(void);
 int Kernel_CreateTask(KernelTaskFunction_t function,
                       void *argument,
                       uint8_t priority,
                       uint32_t stack_size_words);
+
+
+int Kernel_Init(void);
 
 #endif

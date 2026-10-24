@@ -1,13 +1,21 @@
 #include "stm32f4xx_hal.h"
 #include "clock_config.h"
+#include "kernel.h"
+
 int main(void)
 {
     HAL_Init();
     SystemClock_Config();
 
+    if (Kernel_Init() != 0)
+    {
+        Error_Handler();
+    }
+
+    /* Application task creation will go here. */
+
     while (1)
     {
-        /* FreeRTOS will be added after this bare-metal project builds. */
+        /* Scheduler startup is not implemented yet. */
     }
 }
-
