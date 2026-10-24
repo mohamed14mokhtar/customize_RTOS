@@ -1,0 +1,8 @@
+#ifndef KERNEL_CONFIG_H
+#define KERNEL_CONFIG_H
+
+#define KERNEL_MAX_TASKS  4U
+#define KERNEL_TICK_HZ    1000U
+#define KERNEL_STACK_SIZE_WORDS  256U
+
+#endif
